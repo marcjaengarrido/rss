@@ -114,6 +114,12 @@ git push heroku master
 * 5\. Pujar i compartir el codi a GIT
 * 6\. Icones de font-awesome (font-awesome és una porqueria. Jo he fet servir [lord icon](https://lordicon.com) en el seu lloc). Hi ha icones al títol/secció de la pàgina i al botó del buscador. Són animats.
 
+Respecte al compartir a git, fet. S'ha publicat la versió amb la seva etiqueta i s'ha compartit amb el professorat.
+
+![Colaboradors](https://github.com/marcjaengarrido/daw/assets/102189955/95f1f0a6-6233-4366-812e-8c238ce491d3)
+![Versió](https://github.com/marcjaengarrido/daw/assets/102189955/4ff3cbbb-0be8-4ee6-8544-1cf23025b1d9)
+
+No m'ha agradat que el repositori s'ha de publicar sí o sí per a fer lo de les etiquetes pero bueno, ja està fet.
 <!-- No se puede hacer esto?
 
 1. Hola
