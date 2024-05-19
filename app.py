@@ -104,7 +104,8 @@ def elpuntavui(seccio):
 
 def get_rss_elpuntavui(seccio):
     xml = f"https://www.elpuntavui.cat/{seccio}.feed?type=rss"
-    
+    #xml = f"./rss/elpuntavui/{seccio}.xml" # bah a ningú li agrada el mode local
+
     rss = feedparser.parse(xml)
     return rss
 
