@@ -8,6 +8,7 @@
 2. [Execució del programari](https://github.com/marcjaengarrido/daw/blob/main/m4/uf3/flask/readme.md#2-execuci%C3%B3-del-programari)
 3. [Modes: remot i local](https://github.com/marcjaengarrido/daw/blob/main/m4/uf3/flask/readme.md#3-modes-remot-i-local)
 * [ERRORS](https://github.com/marcjaengarrido/daw/blob/main/m4/uf3/flask/readme.md#errors-como-odio-los-errores)
+* [EXTRAS](https://github.com/marcjaengarrido/daw/blob/main/m4/uf3/flask/readme.md#extras)
 
 ### DOCUMENTACIÓ REAL
 
@@ -101,3 +102,25 @@ npm install
 heroku create
 git push heroku master
 ```
+
+
+### EXTRAS
+* 1\. Afegir el Punt Avui. Fet. La única diferencia amb el de la vanguardia és que el buscador no funciona per culpa del maleit CORS. 
+* 2\. JavaScript. He decidit afegir una mica de JavaScript:
+  * La primera cosa que he implementat ha sigut la barra de búsqueda, la cuál et portarà a la secció de qualsevol tema que hagi sigut introduit sempre i quan aquest estigui disponible a el RSS de La Vanguardia. Per a revisar si existeix o no, es fa una petició a la pàgina web.
+  * La segona cosa és, com s'indicava a l'enunciat, que les imatges es fagin grans. No nomès al clicar la imatge, però en clicar qualsevol punt del div de la noticia excepte el títol, s'obrirà la imatge en gran. Si fem click en qualsevol lloc de la fniestra podrem sortir de la imatge de nou i, en cas de no existir-hi cap imatge, veurem uns gatets. 
+* 3\. CSS Propi. No sé quant era necessari així que jo he afegit només una mica, el necessari.
+* 4\. ~~Personalitzar amb SASS~~. Posa dificil al titol, no és molt convincent
+* 5\. Pujar el codi a GIT(hub?)
+* 6\. Icones de font-awesome (font-awesome és una porqueria. Jo he fet servir [lord icon](https://lordicon.com) en el seu lloc). Hi ha icones al títol/secció de la pàgina i al botó del buscador. Són animats.
+
+<!-- No se puede hacer esto?
+
+1. Hola
+2. Que tal
+  * Nested
+  * Otro nested
+3. Adiós
+
+Si se puede pero los nested no tabulan. Vaya porquería
+-->
