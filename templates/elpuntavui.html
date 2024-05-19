@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="../static/js/script.js"></script>
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <title>{{rss.feed.title}}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <overnavbar>
+        <div class="container p-5 my-5 bg-dark text-white text-center">
+
+            <h2 class="tituloMedio" style="display: flex; align-items: center; justify-content: center;">
+                <span style="display: flex; align-items: center; background-color: rgb(255,186,33); padding: 10px; border-radius: 5px;"> 
+                    <lord-icon
+                        src="https://cdn.lordicon.com/depeqmsz.json"
+                        trigger="loop"
+                        delay="2000"
+                        colors="primary:#000000"
+                        style="width:150px;height:150px; margin-right: 10px;">
+                    </lord-icon>
+                    {{rss.feed.title}}
+                </span> <!-- Se vuelve todo amarillo pero bueno, es lo que hay -->
+            </h2><br>
+            {#<!--<img class="imagenCentral" src="{{rss.feed.image.href}}"> vaya gráficos de m -->
+            <!--{{rss.feed.links[0].href}} - {{rss.feed.image.href}}</h1>-->#}
+        </div>
+    </overnavbar>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top"> <!-- uso lg porque con el enlace, lo de buscar y todo eso no hay suficiente espacio -->
+        <div class="container-fluid">
+            {#<!--<img class="navbar-brand" src="{{rss.feed.image.href}}"> no tienen ni foto-->#}
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Carousel</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button"
+                            data-bs-toggle="dropdown">La Vanguardia</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/lavanguardia/cultura">Cultura</a></li>
+                            <li><a class="dropdown-item" href="/lavanguardia/deportes">Deportes</a></li>
+                            <li><a class="dropdown-item" href="/lavanguardia/gente">Gente</a></li>
+                            <li><a class="dropdown-item" href="/lavanguardia/politica">Politica</a></li>
+                            <li><a class="dropdown-item" href="/lavanguardia/vida">Vida</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button"
+                            data-bs-toggle="dropdown">El Punt Avui</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/elpuntavui/barcelona">Barcelona</a></li>
+                            <li><a class="dropdown-item" href="/elpuntavui/esports">Deportes</a></li>
+                            <li><a class="dropdown-item" href="/elpuntavui/societat">Sociedad</a></li>
+                            <li><a class="dropdown-item" href="/elpuntavui/politica">Politica</a></li>
+                            <li><a class="dropdown-item" href="/elpuntavui/cultura">Cultura</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{rss.feed.links[0].href}}">{{rss.feed.links[0].href}}</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <input class="form-control me-2 inputBuscar" type="text" placeholder="television...">
+                    <button class="btn botonBuscar" type="button" onclick="buscarRSS('elpuntavui')" style="background-color: rgb(255,186,33);display: flex;align-items: center;">
+                        <lord-icon
+                            src="https://cdn.lordicon.com/fkdzyfle.json"
+                            trigger="in"
+                            delay="1000"
+                            state="in-search"
+                            style="margin-right: 10px;">
+                        </lord-icon>
+                        Buscar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav><br><br>
+
+    <div class="container">
+        <div class="container imagenDiv" onclick="cerrarImagen()" hidden>
+            <img class="fotoPopup" onclick="cerrarImagen()" src=""></img>
+        </div>
+        <div class="row">
+            {% for item in rss.entries %}
+            {% if item.links[1] is defined %}
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 col-xxl-3 mb-5" onclick="abrirImagen('{{item.links[1].href}}')">
+            {% else %}
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 col-xxl-3 mb-5" onclick="abrirImagen('https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA5L3Jhd3BpeGVsX29mZmljZV8zNF9mbHVmZnlfY2h1YmJ5X3Bhc3RlbF9jYXRzX2thd2FpaV9hZXN0aGV0aWNfM182YTJkZjRmNS03NTZiLTQyODgtOWQ4Mi1lZmRlMmE1MTA2OWRfMS5qcGc.jpg')">
+            {% endif %}
+                <div class="card text-dark card-has-bg" style="background-position: center; background-image: url('{{ item.links[1].href if item.links[1] is defined }}')">
+                    {% if item.links[1] is defined%}
+                    <!--<img class="card-img d-none" src="{{item.links[1].href}}" alt="{{ item.title }}" onclick="abrirImagen('{{item.links[1].href}}')">-->
+                    <img class="card-img d-none" src="{{item.links[1].href}}" alt="{{ item.title }}">
+                    {% else%}
+                    <img class="card-img d-none" src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA5L3Jhd3BpeGVsX29mZmljZV8zNF9mbHVmZnlfY2h1YmJ5X3Bhc3RlbF9jYXRzX2thd2FpaV9hZXN0aGV0aWNfM182YTJkZjRmNS03NTZiLTQyODgtOWQ4Mi1lZmRlMmE1MTA2OWRfMS5qcGc.jpg" alt="{{ item.title }}">
+            
+                    {% endif %}
+                    <div class="card-img-overlay d-flex flex-column">
+                        <div class="card-body">
+                            <span>
+                                <p style="size: 7px;" class="card-meta mb-0">{{ item.tags[0].term }}</p><p style="font-size:10px;">{{item.published}}</p>
+                            </span>
+                            <p class="card-title mt-0" onclick="document.documentElement.innerHTML = ''"><a class="text-dark" href="{{ item.link }}">{{ item.title }}</a></p> <!-- en el onclick borro todo para que no abra la imagen el onclick grande que ocupa toda la carta -->
+                        </div>
+                        <div class="card-footer">
+                            {{item.summary|safe}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+
+</html>

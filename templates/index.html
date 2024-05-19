@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="../static/js/script.js"></script>
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <title>Diaris!</title>
+</head>
+
+<body>
+
+    <overnavbar>
+        <div class="container p-5 my-5 bg-dark text-white text-center">
+            <h1 class="tituloGordo">La Vanguardia</h1><br>
+            <h2 class="tituloMedio" style="display: flex; align-items: center; justify-content: center;">
+                <span style="display: flex; align-items: center; background-color: rgb(255,186,33); padding: 10px; border-radius: 5px;">
+                    <lord-icon
+                        src="https://cdn.lordicon.com/ipnwkgdy.json"
+                        trigger="loop"
+                        delay="2000"
+                        colors="primary:#000000"
+                        style="width:150px;height:150px; margin-right: 10px;">
+                    </lord-icon>
+                    Galería
+                </span>
+            </h2><br>
+        </div>
+    </overnavbar>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top"> <!-- uso lg porque con el enlace, lo de buscar y todo eso no hay suficiente espacio -->
+        <div class="container-fluid">
+            {#<!--<img class="navbar-brand" src="{{rss.feed.image.href}}"> no tienen ni foto-->#}
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Carousel</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button"
+                            data-bs-toggle="dropdown">La Vanguardia</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/lavanguardia/cultura">Cultura</a></li>
+                            <li><a class="dropdown-item" href="/lavanguardia/deportes">Deportes</a></li>
+                            <li><a class="dropdown-item" href="/lavanguardia/gente">Gente</a></li>
+                            <li><a class="dropdown-item" href="/lavanguardia/politica">Politica</a></li>
+                            <li><a class="dropdown-item" href="/lavanguardia/vida">Vida</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button"
+                            data-bs-toggle="dropdown">El Punt Avui</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/elpuntavui/barcelona">Barcelona</a></li>
+                            <li><a class="dropdown-item" href="/elpuntavui/esports">Deportes</a></li>
+                            <li><a class="dropdown-item" href="/elpuntavui/societat">Sociedad</a></li>
+                            <li><a class="dropdown-item" href="/elpuntavui/politica">Politica</a></li>
+                            <li><a class="dropdown-item" href="/elpuntavui/cultura">Cultura</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <input class="form-control me-2 inputBuscar" type="text" placeholder="television...">
+                    <button class="btn botonBuscar" type="button" onclick="buscarRSS('lavanguardia')" style="background-color: rgb(255,186,33);display: flex;align-items: center;">
+                        <lord-icon
+                            src="https://cdn.lordicon.com/fkdzyfle.json"
+                            trigger="in"
+                            delay="1000"
+                            state="in-search"
+                            style="margin-right: 10px;">
+                        </lord-icon>
+                        Buscar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav><br><br>
+
+    <div class="container">
+        
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="../static/img/rey.webp" alt="First slide">
+                    <div class="carousel-caption">
+                        <h3><span style="background-color: black; padding: 4px;">Coronació Reial</span></h3>
+                        <p><span style="background-color: black; padding: 4px;">El nostre nou rei és oficialment coronat!</span></p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="../static/img/meteorito.jpg" alt="Second slide">
+                    <div class="carousel-caption">
+                        <h3><span style="background-color: black; padding: 4px;">Demà morim tots</span></h3>
+                        <p><span style="background-color: black; padding: 4px;">Els cientifics calculen que en unes 14 hores el meteorit fará contacte amb la Terra. Aneu acomiadant-vos!!</span></p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="../static/img/goku.jpg" alt="Third slide">
+                    <div class="carousel-caption">
+                        <h3><span style="background-color: black; padding: 4px;">GOKU</span></h3>
+                        <p><span style="background-color: black; padding: 4px;">GOKU FINALMENT HA ACONSEGUIT DOMINAR COMPLETAMENT EL SEU ULTRA INSTINT!</span></p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+        </div>
+    </div>
+    <br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br> <!-- Dejo todo lo de debajo por si lo quieres conservar -->
+    <p>Mira les noticies de La Vanguardia:</p>
+    <ul>
+        <li><a href="/lavanguardia/deportes">Deportes</a></li>
+        <li><a href="/lavanguardia/politica">Política</a></li>
+        <li><a href="/lavanguardia/vida">Vida</a></li>
+        <li><a href="/lavanguardia/gente">Gente</a></li>
+        <li><a href="/lavanguardia/cultura">Cultura</a></li>
+    </ul>
+    <img src="/static/img/diaris.jpg" alt="Diaris" />
+</body>
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</html>
