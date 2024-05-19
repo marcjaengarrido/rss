@@ -130,3 +130,5 @@ No m'ha agradat que el repositori s'ha de publicar sí o sí per a fer lo de les
 
 Si se puede pero los nested no tabulan. Vaya porquería
 -->
+
+El readme es pot trobar [aquí](https://github.com/marcjaengarrido/rss/blob/main/readmegithub.md) o [aquí](https://github.com/marcjaengarrido/daw/blob/main/m4/uf3/flask/readme.md).
