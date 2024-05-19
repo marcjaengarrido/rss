@@ -111,7 +111,7 @@ git push heroku master
   * La segona cosa és, com s'indicava a l'enunciat, que les imatges es fagin grans. No nomès al clicar la imatge, però en clicar qualsevol punt del div de la noticia excepte el títol, s'obrirà la imatge en gran. Si fem click en qualsevol lloc de la fniestra podrem sortir de la imatge de nou i, en cas de no existir-hi cap imatge, veurem uns gatets. 
 * 3\. CSS Propi. No sé quant era necessari així que jo he afegit només una mica, el necessari.
 * 4\. ~~Personalitzar amb SASS~~. Posa dificil al titol, no és molt convincent
-* 5\. Pujar el codi a GIT(hub?)
+* 5\. Pujar i compartir el codi a GIT
 * 6\. Icones de font-awesome (font-awesome és una porqueria. Jo he fet servir [lord icon](https://lordicon.com) en el seu lloc). Hi ha icones al títol/secció de la pàgina i al botó del buscador. Són animats.
 
 <!-- No se puede hacer esto?
